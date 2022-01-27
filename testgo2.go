@@ -8,12 +8,12 @@ import (
 
 func UmountTaks(task *PodSvc) {
 	// 取消挂载
-	klog.Info("ummount")
+	klog.InfoS("ummount", "pod", task.PodIP, "svc", task.SvcName)
 }
 
 func MountTask(task *PodSvc) {
 	// 挂载
-	klog.Info("mount")
+	klog.InfoS("mount", "pod", task.PodIP, "svc", task.SvcName)
 }
 
 func dotask(f func(t *PodSvc), pod *v1.Pod, ns string, lsOptions *metav1.ListOptions) {
@@ -23,7 +23,7 @@ func dotask(f func(t *PodSvc), pod *v1.Pod, ns string, lsOptions *metav1.ListOpt
 		svcName := svcObj.GetName()
 		klog.InfoS("found releted svc:", "pod", pod.GetName(), "svc", svcName)
 
-		task := &PodSvc{podIP: podIp, svcName: svcName}
+		task := &PodSvc{PodIP: podIp, SvcName: svcName}
 		f(task)
 	}
 }

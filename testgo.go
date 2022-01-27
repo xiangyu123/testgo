@@ -26,18 +26,18 @@ var (
 )
 
 const (
-	Normal              = "Normal"
-	Started             = "Started"
-	Killing             = "Killing"
-	Warning             = "Warning"
-	Unhealthy           = "Unhealthy"
-	WatchNs             = "prod"
-	WatchResource       = "Pod"
+	Normal        = "Normal"
+	Started       = "Started"
+	Killing       = "Killing"
+	Warning       = "Warning"
+	Unhealthy     = "Unhealthy"
+	WatchNs       = "prod"
+	WatchResource = "Pod"
 )
 
 type PodSvc struct {
-	podIP   string
-	svcName string
+	PodIP   string
+	SvcName string
 }
 
 func main() {
